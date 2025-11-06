@@ -1,18 +1,45 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
+import emailjs from "emailjs-com";
 
-export default function Contact(){
-  const [form,setForm] = useState({ nombre:'', email:'', mensaje:'' })
-  const [ok,setOk] = useState(false)
+export default function Contact() {
+  const [form, setForm] = useState({ nombre: "", email: "", mensaje: "" });
+  const [ok, setOk] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value })
+  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    // No DB ni correo: solo confirmación local
-    setOk(true)
-    setForm({ nombre:'', email:'', mensaje:'' })
-    setTimeout(()=>setOk(false), 4000)
-  }
+    e.preventDefault();
+    setLoading(true);
+
+    // Asegúrate de reemplazar estos valores con los de tu cuenta EmailJS
+    const SERVICE_ID = "service_123abc";
+    const TEMPLATE_ID = "template_5gb910t";
+    const PUBLIC_KEY = "t6DVWUEFUyGBciIT7";
+
+    // Crea el objeto que tu plantilla espera. 
+    // En EmailJS, en la plantilla puedes usar variables como {{nombre}}, {{email}}, {{mensaje}}
+    const templateParams = {
+      nombre: form.nombre,
+      email: form.email,
+      mensaje: form.mensaje,
+    };
+
+    emailjs
+      .send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY)
+      .then(
+        (response) => {
+          setOk(true);
+          setForm({ nombre: "", email: "", mensaje: "" });
+          setTimeout(() => setOk(false), 4000);
+        },
+        (err) => {
+          console.error("EmailJS error", err);
+          alert("No se pudo enviar el mensaje. Intenta más tarde.");
+        }
+      )
+      .finally(() => setLoading(false));
+  };
 
   return (
     <section id="contacto" className="py-12">
@@ -25,22 +52,52 @@ export default function Contact(){
         </div>
 
         <form onSubmit={handleSubmit} className="bg-gray-900 border border-gray-800 p-6 rounded-2xl space-y-4">
-          {ok && <div className="p-3 bg-green-700 text-black rounded">Gracias — recibimos tu mensaje.</div>}
+          {ok && <div className="p-3 bg-green-600 text-black rounded">✅ Gracias — recibimos tu mensaje.</div>}
+
           <div>
             <label className="text-sm text-gray-200">Nombre</label>
-            <input name="nombre" value={form.nombre} onChange={handleChange} required className="w-full mt-1 p-3 rounded bg-black border border-gray-700 text-gray-200" />
+            <input
+              name="nombre"
+              value={form.nombre}
+              onChange={handleChange}
+              required
+              className="w-full mt-1 p-3 rounded bg-black border border-gray-700 text-gray-200"
+            />
           </div>
+
           <div>
             <label className="text-sm text-gray-200">Correo</label>
-            <input type="email" name="email" value={form.email} onChange={handleChange} required className="w-full mt-1 p-3 rounded bg-black border border-gray-700 text-gray-200" />
+            <input
+              type="email"
+              name="email"
+              value={form.email}
+              onChange={handleChange}
+              required
+              className="w-full mt-1 p-3 rounded bg-black border border-gray-700 text-gray-200"
+            />
           </div>
+
           <div>
             <label className="text-sm text-gray-200">Mensaje</label>
-            <textarea name="mensaje" value={form.mensaje} onChange={handleChange} required rows="4" className="w-full mt-1 p-3 rounded bg-black border border-gray-700 text-gray-200"></textarea>
+            <textarea
+              name="mensaje"
+              value={form.mensaje}
+              onChange={handleChange}
+              required
+              rows="4"
+              className="w-full mt-1 p-3 rounded bg-black border border-gray-700 text-gray-200"
+            />
           </div>
-          <button className="w-full py-3 rounded-2xl bg-desoBlue font-semibold text-black">Enviar</button>
+
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full py-3 rounded-2xl bg-desoBlue font-semibold text-black disabled:opacity-60"
+          >
+            {loading ? "Enviando…" : "Enviar"}
+          </button>
         </form>
       </div>
     </section>
-  )
+  );
 }
