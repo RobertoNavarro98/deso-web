@@ -20,7 +20,7 @@ export default function Contact(){
         <div className="bg-gray-900 border border-gray-800 p-6 rounded-2xl">
           <h3 className="text-xl font-bold text-gray-100">Contacto</h3>
           <p className="mt-2 text-gray-400">Tel: <strong>+52 477 123 4567</strong></p>
-          <p className="mt-1 text-gray-400">Email: <strong>contacto@deso.com.mx</strong></p>
+          <p className="mt-1 text-gray-400">Email: <strong>navarro.roberto1998@outlook.com</strong></p>
           <p className="mt-4 text-gray-400">Dirección: León, Guanajuato, México</p>
         </div>
 
