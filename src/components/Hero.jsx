@@ -1,18 +1,14 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 
-export default function Hero(){
+export default function Hero() {
   return (
-    <section className="pt-28 pb-16">
-      <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-        <motion.div
-          initial={{ x:-40, opacity:0 }}
-          animate={{ x:0, opacity:1 }}
-          transition={{ duration:0.6 }}
-        >
-          <div className="inline-block bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800 p-6 rounded-2xl border border-gray-700 shadow-lg">
-            <img src="/logo.png" alt="DESO" className="w-48 mx-auto mb-4 object-contain" />
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-100">DESO</h1>
+    <section className="pt-28 pb-12">
+      <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
+        <motion.div initial={{ x:-30, opacity:0 }} animate={{ x:0, opacity:1 }} transition={{ duration:0.6 }}>
+          <div className="inline-block bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 p-6 rounded-2xl border border-gray-800 shadow-lg">
+            <img src="/logo.png" alt="DESO" className="w-44 mx-auto mb-3 object-contain" />
+            <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-100">DESO</h1>
             <p className="text-gray-400 mt-1 font-oswald">Desarrollos y soluciones</p>
           </div>
 
@@ -20,7 +16,7 @@ export default function Hero(){
             Mantenimiento industrial para máquinas de inyección de plásticos
           </h2>
           <p className="mt-4 text-gray-400">
-            Planes preventivos, reparaciones rápidas y análisis predictivo. Además, soluciones y automatización a medida para mejorar producción y OEE.
+            Planes preventivos, reparaciones rápidas, análisis predictivo y soluciones de automatización para mejorar tu OEE.
           </p>
 
           <div className="mt-6 flex gap-3">
@@ -29,12 +25,7 @@ export default function Hero(){
           </div>
         </motion.div>
 
-        <motion.div
-          initial={{ x:40, opacity:0 }}
-          animate={{ x:0, opacity:1 }}
-          transition={{ duration:0.6 }}
-          className="rounded-2xl p-6 bg-gradient-to-b from-gray-900 to-black border border-gray-800"
-        >
+        <motion.div initial={{ x:30, opacity:0 }} animate={{ x:0, opacity:1 }} transition={{ duration:0.6 }} className="rounded-2xl p-6 bg-gradient-to-b from-gray-900 to-black border border-gray-800">
           <div className="grid grid-cols-2 gap-4 text-center">
             <div className="p-6 bg-gray-800 rounded-2xl">
               <div className="text-3xl font-bold text-gray-100">24/7</div>
@@ -49,7 +40,7 @@ export default function Hero(){
               <div className="text-xs text-gray-400">Experiencia</div>
             </div>
             <div className="p-6 bg-gray-800 rounded-2xl">
-              <div className="text-3xl font-bold text-gray-100">Robot IIoT</div>
+              <div className="text-3xl font-bold text-gray-100">Robot IoT</div>
               <div className="text-xs text-gray-400">Monitorización</div>
             </div>
           </div>
