@@ -47,8 +47,7 @@ export default function Contact(){
           <p className="mt-1 text-gray-400">Email: <strong>navarro.roberto1998@outlook.com</strong></p>
           <p className="mt-4 text-gray-400">Dirección: León, Guanajuato, México</p>
 
-          <div className="mt-4 text-xs text-gray-500">
-            // Si no quieres usar EmailJS, comenta la llamada a <code>emailjs.send()</code> en este archivo y reemplázala por la lógica que prefieras.
+          <div className="mt-4 text-xs text-gray-500">            
           </div>
         </div>
 
