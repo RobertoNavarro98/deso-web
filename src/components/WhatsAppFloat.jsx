@@ -3,6 +3,7 @@ import { FaWhatsapp, FaChevronUp, FaChevronDown } from "react-icons/fa";
 
 export default function WhatsAppFloat() {
   const [isOpen, setIsOpen] = useState(false);
+  const [showTooltip, setShowTooltip] = useState(true);
 
   const mensaje = "Hola, me interesa un servicio de mantenimiento industrial con DESO.";
 
@@ -19,9 +20,20 @@ export default function WhatsAppFloat() {
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+      {/* Tooltip flotante */}
+      {showTooltip && !isOpen && (
+        <div className="bg-gray-900 text-white text-sm rounded-full px-3 py-2 mb-2 shadow-lg animate-bounce">
+          ¿Necesitas ayuda?
+        </div>
+      )}
+
       {/* Botón principal */}
       <button
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => {
+          setIsOpen(!isOpen);
+          setShowTooltip(false);
+        }}
+        onMouseEnter={() => setShowTooltip(false)}
         className="flex items-center justify-center bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full shadow-lg transition-transform transform hover:scale-105"
         aria-label="Contactar por WhatsApp"
       >
