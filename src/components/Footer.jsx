@@ -9,7 +9,7 @@ export default function Footer(){
           {/* Reemplaza # por tus URLs */}
           <a href="#" className="text-gray-400 hover:text-white">LinkedIn</a>
           <a href="#" className="text-gray-400 hover:text-white">Facebook</a>
-          <a href="mailto:contacto@deso.com.mx" className="text-gray-400 hover:text-white">contacto@deso.com.mx</a>
+          <a href="mailto:contacto@deso.com.mx" className="text-gray-400 hover:text-white">navarro.roberto1998@outlook.com</a>
         </div>
       </div>
     </footer>
