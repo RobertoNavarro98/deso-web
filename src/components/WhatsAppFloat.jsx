@@ -26,8 +26,10 @@ export default function WhatsAppFloat() {
           aria-label={`Contactar a ${contacto.nombre} por WhatsApp`}
           title={`Contactar a ${contacto.nombre}`}
         >
-          <FaWhatsapp size={26} className="mr-2" />
-          <span className="text-sm font-medium">{contacto.nombre}</span>
+          <FaWhatsapp size={28} className="mr-2" />
+          <span className="hidden sm:inline text-sm font-medium">
+            {contacto.nombre}
+          </span>
         </a>
       ))}
     </div>
