@@ -6,6 +6,7 @@ import Projects from './components/Projects'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import WhatsAppFloat from './components/WhatsAppFloat'
+import Projects from "./components/Projects";
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
         <Services />
         <Projects />
         <Contact />
+        <Projects />
       </main>
 
       <Footer />

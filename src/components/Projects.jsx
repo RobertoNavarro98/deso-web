@@ -1,48 +1,89 @@
-import React from 'react'
+import { useState } from "react";
 
-export default function Projects(){
-  // ======= INSTRUCCIONES: ========
-  // Para agregar un proyecto:
-  // 1) Coloca una imagen en /public/projects/ (ej: proyecto1.png)
-  // 2) Copia un objeto dentro del array `projects` con:
-  //      { title: 'Título', desc: 'Breve descripción', img: '/projects/proyecto1.png', link: 'https://...' }
-  // 3) Guarda y haz git commit + push — Vercel actualizará la web.
-  //
-  // Ejemplo (descomenta y usa como plantilla):
-  // const projects = [
-  //   { title: 'Automatización de inyectora', desc: 'Retrofit y control PLC', img: '/projects/proyecto1.png', link: '#' },
-  // ]
-  //
-  // Por ahora lo dejo vacío para que tú lo rellenes.
-
-  const projects = [] // <-- agrega tus objetos aquí según las instrucciones
+export default function Projects() {
+  // 🔧 Aquí puedes agregar o quitar proyectos fácilmente
+  const [projects] = useState([
+    {
+      id: 1,
+      titulo: "Optimización de máquina de inyección ENGEL 180T",
+      descripcion:
+        "Implementamos un sistema de control automático para mejorar la eficiencia y reducir paros no programados. Se integraron sensores y controladores PLC Siemens.",
+      imagen: "/projects/proyecto1.png", // cambia por tu imagen real
+      resultados: [
+        "Aumento del 25% en la productividad.",
+        "Reducción de 30% en fallas eléctricas.",
+        "Integración completa con red industrial existente."
+      ]
+    },
+    {
+      id: 2,
+      titulo: "Instalación de nueva línea de producción",
+      descripcion:
+        "Montaje y calibración de maquinaria de inyección de plásticos, con puesta en marcha y capacitación al personal técnico.",
+      imagen: "/projects/proyecto2.png",
+      resultados: [
+        "Instalación completa en 3 semanas.",
+        "Capacitación a 10 técnicos en mantenimiento.",
+        "Cumplimiento de normas NOM y seguridad industrial."
+      ]
+    },
+    {
+      id: 3,
+      titulo: "Desarrollo de sistema predictivo con sensores IoT",
+      descripcion:
+        "Diseño de una solución predictiva para detectar vibraciones y temperatura en moldes de inyección, enviando alertas en tiempo real.",
+      imagen: "/projects/proyecto3.png",
+      resultados: [
+        "Sistema conectado a dashboard remoto.",
+        "Reducción de 40% en tiempos muertos.",
+        "Integración con red industrial existente."
+      ]
+    },
+  ]);
 
   return (
-    <section id="proyectos" className="py-12">
-      <div className="max-w-6xl mx-auto px-6">
-        <h3 className="text-2xl font-bold text-gray-100">Proyectos realizados</h3>
-        <p className="text-gray-400 mt-2">Aquí podrás añadir tus trabajos destacados — copia el ejemplo en el comentario para agregar nuevos proyectos.</p>
+    <section className="bg-gray-900 text-gray-100 py-16 px-6" id="proyectos">
+      <div className="max-w-6xl mx-auto text-center mb-12">
+        <h2 className="text-3xl font-bold text-blue-400 mb-3">Proyectos Realizados</h2>
+        <p className="text-gray-400 text-lg">
+          Algunos de los trabajos más destacados de DESO en mantenimiento, instalación y automatización industrial.
+        </p>
+      </div>
 
-        <div className="mt-6 grid sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {projects.length === 0 ? (
-            <div className="col-span-full p-6 bg-gray-900 border border-gray-800 rounded-2xl text-gray-400">
-              <div className="font-medium text-gray-100 mb-2">Aún no hay proyectos</div>
-              <div>Sigue las instrucciones en el código para añadir tus proyectos y sus imágenes en <code>/public/projects/</code>.</div>
+      <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        {projects.map((proyecto) => (
+          <div
+            key={proyecto.id}
+            className="bg-gray-800 rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300"
+          >
+            {/* Imagen */}
+            <div className="h-56 bg-gray-700 flex items-center justify-center overflow-hidden">
+              {proyecto.imagen ? (
+                <img
+                  src={proyecto.imagen}
+                  alt={proyecto.titulo}
+                  className="object-cover w-full h-full"
+                />
+              ) : (
+                <span className="text-gray-400">[Agrega una imagen en /public/projects]</span>
+              )}
             </div>
-          ) : (
-            projects.map((p,i) => (
-              <article key={i} className="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden hover:shadow-lg transition">
-                <img src={p.img} alt={p.title} className="w-full h-40 object-cover" />
-                <div className="p-4">
-                  <h4 className="font-semibold text-gray-100">{p.title}</h4>
-                  <p className="text-gray-400 mt-2 text-sm">{p.desc}</p>
-                  {p.link && <a href={p.link} className="mt-3 inline-block text-desoBlue font-medium">Ver más</a>}
-                </div>
-              </article>
-            ))
-          )}
-        </div>
+
+            {/* Contenido */}
+            <div className="p-6">
+              <h3 className="text-xl font-semibold text-blue-300 mb-2">
+                {proyecto.titulo}
+              </h3>
+              <p className="text-gray-400 mb-4">{proyecto.descripcion}</p>
+              <ul className="text-sm text-gray-300 list-disc list-inside space-y-1">
+                {proyecto.resultados.map((r, i) => (
+                  <li key={i}>{r}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
-  )
+  );
 }
