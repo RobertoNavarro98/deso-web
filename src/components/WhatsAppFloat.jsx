@@ -1,29 +1,38 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaWhatsapp, FaChevronUp, FaChevronDown } from "react-icons/fa";
 
 export default function WhatsAppFloat() {
   const [isOpen, setIsOpen] = useState(false);
   const [showTooltip, setShowTooltip] = useState(true);
+  const [tooltipIndex, setTooltipIndex] = useState(0);
 
-  const mensaje = "Hola, me interesa un servicio de mantenimiento industrial con DESO.";
+  const mensajes = [
+    "¿Necesitas ayuda?",
+    "Chatea con un ingeniero",
+    "Atención personalizada DESO",
+  ];
+
+  const mensajeWhatsApp = "Hola, me interesa un servicio de mantenimiento industrial con DESO.";
 
   const contactos = [
-    {
-      nombre: "Ing. Roberto Navarro",
-      telefono: "524774132126",
-    },
-    {
-      nombre: "Ing. Mario Estrada",
-      telefono: "524791027636",
-    },
+    { nombre: "Ing. Roberto Navarro", telefono: "524774132126" },
+    { nombre: "Ing. Mario Estrada", telefono: "524791027636" },
   ];
+
+  // 🔄 Rotar mensajes cada 3.5 segundos
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTooltipIndex((prev) => (prev + 1) % mensajes.length);
+    }, 3500);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
-      {/* Tooltip flotante */}
+      {/* Tooltip dinámico */}
       {showTooltip && !isOpen && (
-        <div className="bg-gray-900 text-white text-sm rounded-full px-3 py-2 mb-2 shadow-lg animate-bounce">
-          ¿Necesitas ayuda?
+        <div className="bg-gray-900 text-white text-sm rounded-full px-3 py-2 mb-2 shadow-lg animate-fade-in">
+          {mensajes[tooltipIndex]}
         </div>
       )}
 
@@ -49,7 +58,7 @@ export default function WhatsAppFloat() {
         {contactos.map((contacto, index) => (
           <a
             key={index}
-            href={`https://wa.me/${contacto.telefono}?text=${encodeURIComponent(mensaje)}`}
+            href={`https://wa.me/${contacto.telefono}?text=${encodeURIComponent(mensajeWhatsApp)}`}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center bg-white text-gray-800 hover:bg-green-100 rounded-full px-4 py-2 mb-2 shadow-md transition-all"
@@ -60,7 +69,7 @@ export default function WhatsAppFloat() {
         ))}
       </div>
 
-      {/* Indicador visual (flecha) */}
+      {/* Flecha indicadora */}
       {isOpen ? (
         <FaChevronDown className="text-green-500 mt-2" />
       ) : (
