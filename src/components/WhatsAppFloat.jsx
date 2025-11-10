@@ -3,35 +3,33 @@ import { FaWhatsapp } from "react-icons/fa";
 export default function WhatsAppFloat() {
   const mensaje = "Hola, me interesa un servicio de mantenimiento industrial con DESO.";
 
-  // Tu número y el de tu socio (formato internacional sin signos)
-  const whatsapp1 = "524774132126"; // Roberto
-  const whatsapp2 = "524791027636"; // Socio
+  const contactos = [
+    {
+      nombre: "Ing. Roberto Navarro",
+      telefono: "524774132126",
+    },
+    {
+      nombre: "Ing. Mario Estrada",
+      telefono: "524791027636",
+    },
+  ];
 
   return (
     <div className="fixed bottom-6 right-6 flex flex-col gap-3 z-50">
-      {/* Tu botón */}
-      <a
-        href={`https://wa.me/${whatsapp1}?text=${encodeURIComponent(mensaje)}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-transform transform hover:scale-110"
-        aria-label="Contactar por WhatsApp Roberto"
-        title="Contactar a Roberto (DESO)"
-      >
-        <FaWhatsapp size={30} />
-      </a>
-
-      {/* Botón del socio */}
-      <a
-        href={`https://wa.me/${whatsapp2}?text=${encodeURIComponent(mensaje)}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-transform transform hover:scale-110"
-        aria-label="Contactar por WhatsApp Socio"
-        title="Contactar a Socio (DESO)"
-      >
-        <FaWhatsapp size={30} />
-      </a>
+      {contactos.map((contacto, index) => (
+        <a
+          key={index}
+          href={`https://wa.me/${contacto.telefono}?text=${encodeURIComponent(mensaje)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full shadow-lg transition-transform transform hover:scale-105"
+          aria-label={`Contactar a ${contacto.nombre} por WhatsApp`}
+          title={`Contactar a ${contacto.nombre}`}
+        >
+          <FaWhatsapp size={26} className="mr-2" />
+          <span className="text-sm font-medium">{contacto.nombre}</span>
+        </a>
+      ))}
     </div>
   );
 }
