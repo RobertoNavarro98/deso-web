@@ -36,11 +36,11 @@ export default function Hero() {
               <div className="text-xs text-gray-400">Uptime objetivo</div>
             </div>
             <div className="p-6 bg-gray-800 rounded-2xl">
-              <div className="text-3xl font-bold text-gray-100">+4 años</div>
+              <div className="text-3xl font-bold text-gray-100">+10 años</div>
               <div className="text-xs text-gray-400">Experiencia</div>
             </div>
             <div className="p-6 bg-gray-800 rounded-2xl">
-              <div className="text-3xl font-bold text-gray-100">Robot IoT</div>
+              <div className="text-3xl font-bold text-gray-100">IIoT</div>
               <div className="text-xs text-gray-400">Monitorización</div>
             </div>
           </div>
