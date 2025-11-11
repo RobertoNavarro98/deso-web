@@ -8,7 +8,9 @@ export default function Footer(){
         <div className="flex gap-4">
           <a href="#" className="text-gray-400 hover:text-white">LinkedIn</a>
           <a href="#" className="text-gray-400 hover:text-white">Facebook</a>
-          <a href="mailto:contacto@deso.com.mx" className="text-gray-400 hover:text-white">navarro.roberto1998@outlook.com</a>
+          <a href="mailto:contacto@deso.com.mx" className="text-gray-400 hover:text-white">navarro.roberto1998@outlook.comq
+            
+          </a>
         </div>
       </div>
     </footer>
