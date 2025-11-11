@@ -1,0 +1,28 @@
+import React from "react";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import Brands from "./components/Brands";
+import KPIs from "./components/KPIs";
+import About from "./components/About";
+import Projects from "./components/Projects";
+import CTA from "./components/CTA";
+import Footer from "./components/Footer";
+import WhatsAppFloat from "./components/WhatsAppFloat";
+
+export default function App() {
+  return (
+    <div className="min-h-screen text-gray-200 bg-black">
+      <Navbar />
+      <main>
+        <Hero />
+        <Brands />
+        <KPIs />
+        <About />
+        <Projects />
+        <CTA />
+      </main>
+      <Footer />
+      <WhatsAppFloat />
+    </div>
+  );
+}
