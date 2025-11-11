@@ -19,29 +19,21 @@ export default function WhatsAppFloat() {
     { nombre: "Ing. Mario Estrada", telefono: "524791027636" },
   ];
 
-  // 🔄 Rotar mensajes cada 3.5 segundos
   useEffect(() => {
-    const interval = setInterval(() => {
-      setTooltipIndex((prev) => (prev + 1) % mensajes.length);
-    }, 3500);
+    const interval = setInterval(() => setTooltipIndex((p) => (p + 1) % mensajes.length), 3500);
     return () => clearInterval(interval);
   }, []);
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
-      {/* Tooltip dinámico */}
       {showTooltip && !isOpen && (
         <div className="bg-gray-900 text-white text-sm rounded-full px-3 py-2 mb-2 shadow-lg animate-fade-in">
           {mensajes[tooltipIndex]}
         </div>
       )}
 
-      {/* Botón principal */}
       <button
-        onClick={() => {
-          setIsOpen(!isOpen);
-          setShowTooltip(false);
-        }}
+        onClick={() => { setIsOpen(!isOpen); setShowTooltip(false); }}
         onMouseEnter={() => setShowTooltip(false)}
         className="flex items-center justify-center bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full shadow-lg transition-transform transform hover:scale-105"
         aria-label="Contactar por WhatsApp"
@@ -49,32 +41,16 @@ export default function WhatsAppFloat() {
         <FaWhatsapp size={28} />
       </button>
 
-      {/* Menú desplegable */}
-      <div
-        className={`flex flex-col items-end mt-2 transition-all duration-300 ${
-          isOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none"
-        }`}
-      >
-        {contactos.map((contacto, index) => (
-          <a
-            key={index}
-            href={`https://wa.me/${contacto.telefono}?text=${encodeURIComponent(mensajeWhatsApp)}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center bg-white text-gray-800 hover:bg-green-100 rounded-full px-4 py-2 mb-2 shadow-md transition-all"
-          >
+      <div className={`flex flex-col items-end mt-2 transition-all duration-300 ${isOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none"}`}>
+        {contactos.map((c,i) => (
+          <a key={i} href={`https://wa.me/${c.telefono}?text=${encodeURIComponent(mensajeWhatsApp)}`} target="_blank" rel="noreferrer" className="flex items-center bg-white text-gray-800 hover:bg-green-100 rounded-full px-4 py-2 mb-2 shadow-md transition-all">
             <FaWhatsapp size={20} className="text-green-500 mr-2" />
-            <span className="text-sm font-medium">{contacto.nombre}</span>
+            <span className="text-sm font-medium">{c.nombre}</span>
           </a>
         ))}
       </div>
 
-      {/* Flecha indicadora */}
-      {isOpen ? (
-        <FaChevronDown className="text-green-500 mt-2" />
-      ) : (
-        <FaChevronUp className="text-green-500 mt-2" />
-      )}
+      {isOpen ? <FaChevronDown className="text-green-500 mt-2" /> : <FaChevronUp className="text-green-500 mt-2" />}
     </div>
   );
 }
