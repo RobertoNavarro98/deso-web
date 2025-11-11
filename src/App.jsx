@@ -5,6 +5,7 @@ import Brands from "./components/Brands";
 import KPIs from "./components/KPIs";
 import About from "./components/About";
 import Projects from "./components/Projects";
+import Contact from './components/Contact'
 import CTA from "./components/CTA";
 import Footer from "./components/Footer";
 import WhatsAppFloat from "./components/WhatsAppFloat";
@@ -19,6 +20,7 @@ export default function App() {
         <KPIs />
         <About />
         <Projects />
+        <Contact />
         <CTA />
       </main>
       <Footer />
