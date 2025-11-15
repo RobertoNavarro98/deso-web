@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const items = [
   { label: "Aumento en productividad", value: "+30%" },
   { label: "Líneas automatizadas", value: "+15" },
-  { label: "Plantas atendidas", value: "8" },
+  { label: "Plantas atendidas", value: "6" },
 ];
 
 export default function KPIs(){

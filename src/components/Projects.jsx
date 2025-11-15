@@ -5,10 +5,10 @@ export default function Projects() {
   const [projects] = useState([
     {
       id: 1,
-      titulo: "Optimización de máquina de inyección ENGEL 180T",
+      titulo: "Optimización de máquina de inyección vertical",
       descripcion:
-        "Implementamos un sistema de control automático para mejorar la eficiencia y reducir paros no programados. Se integraron sensores y controladores PLC Siemens.",
-      imagen: "/projects/proyecto1.png", // cambia por tu imagen real
+        "Implementamos un sistema de control automático para mejorar la eficiencia y reducir paros no programados. Se integraron contadores y controladores PLC Siemens.",
+      imagen: "/projects/vertical.webp", // cambia por tu imagen real
       resultados: [
         "Aumento del 25% en la productividad.",
         "Reducción de 30% en fallas eléctricas.",
@@ -19,24 +19,24 @@ export default function Projects() {
       id: 2,
       titulo: "Instalación de nueva línea de producción",
       descripcion:
-        "Montaje y calibración de maquinaria de inyección de plásticos, con puesta en marcha y capacitación al personal técnico.",
-      imagen: "/projects/proyecto2.png",
+        "Programación de robot y calibración de maquinaria de inyección de plásticos UP, con puesta en marcha y capacitación al personal técnico.",
+      imagen: "/projects/robotmachine.jpg",
       resultados: [
-        "Instalación completa en 3 semanas.",
-        "Capacitación a 10 técnicos en mantenimiento.",
+        "Instalación completa en 5 horas.",
+        "Capacitación a 6 técnicos.",
         "Cumplimiento de normas NOM y seguridad industrial."
       ]
     },
     {
       id: 3,
-      titulo: "Desarrollo de sistema predictivo con sensores IoT",
+      titulo: "Puesta en marcha de máquina Ningbo Union Power Machinery en desuso y abandonada",
       descripcion:
         "Diseño de una solución predictiva para detectar vibraciones y temperatura en moldes de inyección, enviando alertas en tiempo real.",
-      imagen: "/projects/proyecto3.png",
+      imagen: "/projects/asian.jpg",
       resultados: [
-        "Sistema conectado a dashboard remoto.",
-        "Reducción de 40% en tiempos muertos.",
-        "Integración con red industrial existente."
+        "Corroboración de funcionalidad hidráulica, neumática y eléctrica.",
+        "Pruebas con molde.",
+        "Reducción de inactividad en planta."
       ]
     },
   ]);

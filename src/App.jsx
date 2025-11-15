@@ -9,6 +9,7 @@ import Contact from './components/Contact'
 import CTA from "./components/CTA";
 import Footer from "./components/Footer";
 import WhatsAppFloat from "./components/WhatsAppFloat";
+import WhyUs from "./components/WhyUs";
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
         <Projects />
         <Contact />
         <CTA />
+        <WhyUs />
       </main>
       <Footer />
       <WhatsAppFloat />

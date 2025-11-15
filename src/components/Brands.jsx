@@ -9,6 +9,7 @@ export default function Brands() {
     { name: "Haitian", img: "/brands/haitian.png" },
     { name: "Asian Plastic Machinery Co. Ltd", img: "/brands/asian.png" },
     { name: "Negri Bossi", img: "/brands/negribossi.png" },
+    { name: "Ningbo Union Power Machinery", img: "/brands/up.jpg" },
   ];
 
   return (
