@@ -29,7 +29,7 @@ export default function Projects() {
     },
     {
       id: 3,
-      titulo: "Puesta en marcha de máquina Ningbo Union Power Machinery en desuso y abandonada",
+      titulo: "Puesta en marcha de máquina en desuso y abandonada",
       descripcion:
         "Diseño de una solución predictiva para detectar vibraciones y temperatura en moldes de inyección, enviando alertas en tiempo real.",
       imagen: "/projects/asian.jpg",
