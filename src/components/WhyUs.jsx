@@ -48,7 +48,7 @@ export default function WhyUs() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.6 }}
         >
-          Más de 10 años de experiencia ofreciendo soluciones técnicas, instalación de maquinaria,
+          Más de 4 años de experiencia ofreciendo soluciones técnicas, instalación de maquinaria,
           mantenimiento especializado y automatización industrial en la industria del plástico.
         </motion.p>
 
