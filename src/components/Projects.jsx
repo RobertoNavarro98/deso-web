@@ -31,10 +31,10 @@ export default function Projects() {
       id: 3,
       titulo: "Puesta en marcha de máquina en desuso y abandonada",
       descripcion:
-        "Diseño de una solución predictiva para detectar vibraciones y temperatura en moldes de inyección, enviando alertas en tiempo real.",
+        "Solución a una necesidad por estancamiento de máquinaria, rápido y efectivo.",
       imagen: "/projects/asian.jpg",
       resultados: [
-        "Corroboración de funcionalidad hidráulica, neumática y eléctrica.",
+        "Entrega en menos de 4 semanas.",
         "Pruebas con molde.",
         "Reducción de inactividad en planta."
       ]
